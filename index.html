@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Tugas JavaScript ke 2</title>
+</head>
+<body>
+    <h1>
+        Gaji Pegawai<hr>
+    </h1>
+    <script>
+        let namaPegawai = "Ridwan";
+        let jabatan = "manager";
+        let status = "menikah";
+        let gaji = 0;
+        let tunjanganJabatan = 0.15;
+        let bpjs = 0.1;
+        let total_gaji = 0;
+        let tunjanganNikah = (status=="menikah") ? 0.2 : 0;
+
+        if(jabatan == "manager"){
+            gaji = 15000000;
+            total_gaji = gaji - (gaji * tunjanganJabatan) - (gaji * bpjs) - (gaji * tunjanganNikah);
+        } else if(jabatan == "asisten manager"){
+            gaji = 10000000;
+            total_gaji = gaji - (gaji * tunjanganJabatan) - (gaji * bpjs) - tunjanganNikah;
+        } else if(jabatan == "staff") {
+            gaji = 5000000;
+            total_gaji = gaji - (gaji * tunjanganJabatan) - (gaji * bpjs) - tunjanganNikah;
+        } else{
+            gaji = 0;
+            total_gaji = gaji - (gaji * tunjanganJabatan) - (gaji * bpjs) - tunjanganNikah;
+        }
+        
+        document.write("Jabatan = " + jabatan + "<br>Gaji Pokok = Rp." + gaji + "<br>Gaji Bersih = Rp." + total_gaji + "<br>Status = " + status);
+    </script>
+</body>
+</html>
