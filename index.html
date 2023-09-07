@@ -18,7 +18,7 @@
             <div class="pegawai">
                 <script>
                     let namaPegawai = "Ridwan";
-                    let jabatan = "manager";
+                    let jabatan = "asisten manage";
                     let status = "menikah";
                     let gaji = 0;
                     let tunjanganJabatan = 0;
@@ -46,7 +46,8 @@
                         total_gaji = gaji + tunjanganJabatan + bpjs + tunjanganNikah;
                     } else{
                         gaji = 0;
-                        total_gaji = gaji;
+                        tunjanganNikah = gaji * tunjanganNikah;
+                        total_gaji = gaji + tunjanganNikah;
                     }
                     
                     const ubahRupiah = (angka)=>{
