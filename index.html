@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tugas Javascript Ke 3</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="profile">
+            <img src="images/menu.png" class="menu">
+            <img src="images/setting.png" class="setting">
+            <img src="images/achmad.jpg" class="gambar-profil">
+            <h3>Tugas Ke 3 Javascript</h3>
+            <p>Achmad Putra Arifky</p>
+
+            <div class="pegawai">
+                <script>
+                    let p1 = {nama : "Yusuf", agama : "islam"};        
+                    let p2 = {nama : "Haris", agama : "islam"};        
+                    let p3 = {nama : "Nanda", agama : "no islam"};        
+                    let p4 = {nama : "Putra", agama : "islam"};        
+                    let p5 = {nama : "Cristopher", agama : "non islam"};        
+                    let p6 = {nama : "Indy", agama : "non islam"};        
+                    let p7 = {nama : "Teguh", agama : "islam"};        
+                    let p8 = {nama : "Jacky", agama : "non islam"};        
+                    let p9 = {nama : "Prasetya", agama : "islam"};        
+                    let p10 = {nama : "Haris", agama : "islam"};
+        
+                    let pegawai = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
+                    
+                    const ubahRupiah = (angka)=>{
+                        let ubah = angka.toString().split('').reverse().join('');
+                        rupiah = ubah.match(/\d{1,3}/g);
+                        rupiah = rupiah.join('.').split('').reverse().join('');
+                        return rupiah;
+                    }
+                </script>
+
+                <table>
+                    <thead>
+                        <th>No Pegawai</th>
+                        <th>Nama</th>
+                        <th>Agama</th>
+                        <th>Jabatan</th>       
+                        <th>Gaji Pokok</th> 
+                        <th>Tunjangan Jabatan</th>
+                        <th>Tunjangan Kesehatan</th>
+                        <th>Gaji Kotor</th>
+                        <th>Zakat Profesi</th>
+                        <th>Take Home Pay</th>
+                           
+                    </thead>
+                    <tbody>
+                        <script>
+                            let no = 1;
+                            let jabatan = " ";
+                            let gajiPokok = 0;
+                            let tunjanganJabatan;
+                            let tunjanganKesehatan;
+                            let gajiKotor;
+                            let zakatProfesi = 0;
+                            let takeHomePay = 0;
+                            
+                            for(p of pegawai){
+                                let yel = (p.agama == "islam") ? '#cee85c' : '';
+                                let blu = (p.agama == "non islam") ? '#1e75d2' : '';
+                                let warna = (no %2 ==1) ? yel : blu;
+                                if(no <= 2)jabatan = "manager";
+                                else if(no <= 5) jabatan = "asisten manager"; 
+                                else if(no <= 8) jabatan = "supervisor"; 
+                                else if(no <= 10) jabatan = "staff";
+                                else jabatan = " ";
+                                
+                                switch(jabatan){
+                                   case  "manager" : gajiPokok = 15000000; break;
+                                   case  "asisten manager" : gajiPokok = 10000000; break;
+                                   case  "supervisor" : gajiPokok = 7000000; break;
+                                   case  "staff" : gajiPokok = 4000000; break;
+                                   default : gajiPokok = 0;
+                                }
+            
+                                tunjanganJabatan = gajiPokok * 0.2;
+                                tunjanganKesehatan = gajiPokok * 0.1;
+                                gajiKotor = gajiPokok + tunjanganJabatan + tunjanganKesehatan;
+            
+                                if(gajiKotor <= 7000000) {
+                                    zakatProfesi = gajiKotor * 0.025;
+                                    takeHomePay = gajiKotor - zakatProfesi;
+                                }
+            
+                                document.write(`
+                                    <tr bgcolor="${warna}">
+                                        <td>Pegawai ${no++}</td>
+                                        <td>${p.nama}</td>
+                                        <td>${p.agama}</td>
+                                        <td>${jabatan}</td>
+                                        <td>Rp. ${ubahRupiah(gajiPokok)}</td>
+                                        <td>Rp. ${ubahRupiah(tunjanganJabatan)}</td>
+                                        <td>Rp. ${ubahRupiah(tunjanganKesehatan)}</td>
+                                        <td>Rp. ${ubahRupiah(gajiKotor)}</td>
+                                        <td>Rp. ${ubahRupiah(zakatProfesi)}</td>
+                                        <td>Rp. ${ubahRupiah(takeHomePay)}</td>
+                                    </tr>
+                                `);
+                            }
+                        </script>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
