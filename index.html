@@ -52,18 +52,10 @@
 
                         let hargaSatuan = 0;
                         switch (produk) {
-                            case "TV":
-                                hargaSatuan = 2000000;
-                                break;
-                            case "AC":
-                                hargaSatuan = 3000000;
-                                break;
-                            case "Kulkas":
-                                hargaSatuan = 4000000;
-                                break;
-                            default:
-                                alert("Produk tidak valid");
-                                return;
+                            case "TV":hargaSatuan = 2000000;break;
+                            case "AC":hargaSatuan = 3000000;break;
+                            case "Kulkas":hargaSatuan = 4000000;break;
+                            default:alert("Tidak Ada Produk");return;
                         }
 
                         hargaKotor = hargaSatuan * jumlah;
