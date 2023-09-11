@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tugas Javascript Ke 3</title>
+    <title>Tugas Javascript Ke 4</title>
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -12,102 +12,84 @@
             <img src="images/menu.png" class="menu">
             <img src="images/setting.png" class="setting">
             <img src="images/achmad.jpg" class="gambar-profil">
-            <h3>Tugas Ke 3 Javascript</h3>
+            <h3>Tugas Ke 4 Javascript</h3>
             <p>Achmad Putra Arifky</p>
 
             <div class="pegawai">
+                <form id="tokoForm">
+                    <label for="nama">Nama Pelanggan = </label>
+                    <input type="text" name="nama" placeholder="Masukkan Nama Pelanggan" required><br><br>
+            
+                    <label for="produk">Pilih Produk = </label>
+                    <select name="produk">
+                        <option value="TV">TV</option>
+                        <option value="AC">AC</option>
+                        <option value="Kulkas">Kulkas</option>
+                    </select><br><br>
+            
+                    <label for="jumlah">Jumlah Item = </label>
+                    <input type="number" name="jumlah" required placeholder="Masukkan Jumlah Beli"><br><br>
+            
+                    <button type="button" name="proses" class="center" onclick="transaksi()" >Beli</button>
+                </form>
+            
                 <script>
-                    let p1 = {nama : "Yusuf", agama : "islam"};        
-                    let p2 = {nama : "Haris", agama : "islam"};        
-                    let p3 = {nama : "Nanda", agama : "no islam"};        
-                    let p4 = {nama : "Putra", agama : "islam"};        
-                    let p5 = {nama : "Cristopher", agama : "non islam"};        
-                    let p6 = {nama : "Indy", agama : "non islam"};        
-                    let p7 = {nama : "Teguh", agama : "islam"};        
-                    let p8 = {nama : "Jacky", agama : "non islam"};        
-                    let p9 = {nama : "Prasetya", agama : "islam"};        
-                    let p10 = {nama : "Haris", agama : "islam"};
-        
-                    let pegawai = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10];
-                    
                     const ubahRupiah = (angka)=>{
                         let ubah = angka.toString().split('').reverse().join('');
                         rupiah = ubah.match(/\d{1,3}/g);
                         rupiah = rupiah.join('.').split('').reverse().join('');
                         return rupiah;
                     }
-                </script>
+                    function transaksi() {
+                        let frm = document.getElementById("tokoForm");
+                        let nama = frm.nama.value;
+                        let produk = frm.produk.value;
+                        let jumlah = frm.jumlah.value;
+                        let hargaKotor = 0;
+                        let diskon = 0;
+                        let ppn = 0;
+                        let hargaBayar = 0;
 
-                <table>
-                    <thead>
-                        <th>No Pegawai</th>
-                        <th>Nama</th>
-                        <th>Agama</th>
-                        <th>Jabatan</th>       
-                        <th>Gaji Pokok</th> 
-                        <th>Tunjangan Jabatan</th>
-                        <th>Tunjangan Kesehatan</th>
-                        <th>Gaji Kotor</th>
-                        <th>Zakat Profesi</th>
-                        <th>Take Home Pay</th>
-                           
-                    </thead>
-                    <tbody>
-                        <script>
-                            let no = 1;
-                            let jabatan = " ";
-                            let gajiPokok = 0;
-                            let tunjanganJabatan;
-                            let tunjanganKesehatan;
-                            let gajiKotor;
-                            let zakatProfesi = 0;
-                            let takeHomePay = 0;
-                            
-                            for(p of pegawai){
-                                let yel = (p.agama == "islam") ? '#cee85c' : '';
-                                let blu = (p.agama == "non islam") ? '#1e75d2' : '';
-                                let warna = (no %2 ==1) ? yel : blu;
-                                if(no <= 2)jabatan = "manager";
-                                else if(no <= 5) jabatan = "asisten manager"; 
-                                else if(no <= 8) jabatan = "supervisor"; 
-                                else if(no <= 10) jabatan = "staff";
-                                else jabatan = " ";
-                                
-                                switch(jabatan){
-                                   case  "manager" : gajiPokok = 15000000; break;
-                                   case  "asisten manager" : gajiPokok = 10000000; break;
-                                   case  "supervisor" : gajiPokok = 7000000; break;
-                                   case  "staff" : gajiPokok = 4000000; break;
-                                   default : gajiPokok = 0;
-                                }
-            
-                                tunjanganJabatan = gajiPokok * 0.2;
-                                tunjanganKesehatan = gajiPokok * 0.1;
-                                gajiKotor = gajiPokok + tunjanganJabatan + tunjanganKesehatan;
-            
-                                if(gajiKotor <= 7000000) {
-                                    zakatProfesi = gajiKotor * 0.025;
-                                    takeHomePay = gajiKotor - zakatProfesi;
-                                }
-            
-                                document.write(`
-                                    <tr bgcolor="${warna}">
-                                        <td>Pegawai ${no++}</td>
-                                        <td>${p.nama}</td>
-                                        <td>${p.agama}</td>
-                                        <td>${jabatan}</td>
-                                        <td>Rp. ${ubahRupiah(gajiPokok)}</td>
-                                        <td>Rp. ${ubahRupiah(tunjanganJabatan)}</td>
-                                        <td>Rp. ${ubahRupiah(tunjanganKesehatan)}</td>
-                                        <td>Rp. ${ubahRupiah(gajiKotor)}</td>
-                                        <td>Rp. ${ubahRupiah(zakatProfesi)}</td>
-                                        <td>Rp. ${ubahRupiah(takeHomePay)}</td>
-                                    </tr>
-                                `);
-                            }
-                        </script>
-                    </tbody>
-                </table>
+                        let hargaSatuan = 0;
+                        switch (produk) {
+                            case "TV":
+                                hargaSatuan = 2000000;
+                                break;
+                            case "AC":
+                                hargaSatuan = 3000000;
+                                break;
+                            case "Kulkas":
+                                hargaSatuan = 4000000;
+                                break;
+                            default:
+                                alert("Produk tidak valid");
+                                return;
+                        }
+
+                        hargaKotor = hargaSatuan * jumlah;
+                        diskon = 0;
+                        ppn = 0;
+
+                        if (produk === "Kulkas" && jumlah >= 3) {
+                            diskon = 0.3 * hargaKotor;
+                        } else if (produk === "AC" && jumlah >= 3) {
+                            diskon = 0.2 * hargaKotor;
+                        } else {
+                            diskon = 0.1 * hargaKotor;
+                        }
+
+                        ppn = 0.1 * (hargaKotor - diskon);
+                        hargaBayar = hargaKotor - diskon + ppn;
+                        alert("Nama Pelangga = " + nama +
+                            "\nProduk Yang Dibeli = " + produk +
+                            "\nHarga Satuan = Rp." + ubahRupiah(hargaSatuan) +
+                            "\nJumlah Item Yang Dibeli = " + jumlah +
+                            "\nHarga Kotor = Rp." + ubahRupiah(hargaKotor) +
+                            "\nDiskon = Rp." + ubahRupiah(diskon) +
+                            "\nPPN = Rp." + ubahRupiah(ppn) +
+                            "\nHarga Bayar = Rp." + ubahRupiah(hargaBayar));
+                    }
+                </script>
             </div>
         </div>
     </div>
