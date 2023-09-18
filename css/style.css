@@ -65,6 +65,7 @@ th,td{
     border-color: #2196F3;
     color: dodgerblue;
     justify-content: center;
+    border-radius: 50px;
 }
 .center:hover{
     background: #2196F3;
