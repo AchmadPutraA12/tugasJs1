@@ -1,111 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tugas Javascript Ke 1</title>
-    <link rel="stylesheet" href="css/style.css" />
-  </head>
-  <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="js/jquery-3.7.1.min.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
     <div class="container">
-      <div class="profile">
-        <img src="images/menu.png" class="menu" />
-        <img src="images/setting.png" class="setting" />
-        <img src="images/achmad.png" class="gambar-profil" />
-        <h3>
-          <script>
-            var nama = "Achmad Putra Arifky";
-            document.write(nama);
-          </script>
-        </h3>
-        <p>
-          <script>
-            var deskripsi = "Informatics Engineer Student";
-            document.write(deskripsi);
-          </script>
-        </p>
-        <div class="contac">
-          <table>
-            <tr>
-              <th>
-                <img src="images/telpon.png" class="telpon" />
-              </th>
-              <td>
-                <script>
-                  var no_telpon = "+62 858 5009 3110";
-                  document.write(no_telpon);
-                </script>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <img src="images/lokasi.png" class="lokasi" />
-              </th>
-              <td>
-                <script>
-                  var alamat = "Jl. SemoloWaru Utara 1/27,Surabaya";
-                  document.write(alamat);
-                </script>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <img src="images/gender.png" class="gender" />
-              </th>
-              <td>
-                <script>
-                  var gender = "Laki-Laki";
-                  document.write(gender);
-                </script>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <img src="images/umur.png" class="umur" />
-              </th>
-              <td>
-                <script>
-                  var umur = 21;
-                  document.write(umur + " tahun");
-                </script>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <img src="images/skill.png" class="skill" />
-              </th>
-              <td>
-                <script>
-                  var keahlian1 = "html";
-                  var keahlian2 = "css";
-                  var keahlian3 = "java";
-                  var keahlian4 = "javascript";
-                  document.write(
-                    keahlian1 +
-                      ", " +
-                      keahlian2 +
-                      ", " +
-                      keahlian3 +
-                      " dan " +
-                      keahlian4
-                  );
-                </script>
-              </td>
-            </tr>
-            <tr>
-              <th>
-                <img src="images/email.png" class="email" />
-              </th>
-              <td>
-                <script>
-                  var email = "ahmad.arifki90@gmail.com";
-                  document.write(email);
-                </script>
-              </td>
-            </tr>
-          </table>
+        <div class="profile">
+            <img src="images/menu.png" class="menu">
+            <img src="images/setting.png" class="setting">
+            <img src="images/achmad.jpg" class="gambar-profil">
+            <h3>Tugas Ke 6 Javascript</h3>
+            <br>
+            <p id="title">Pilih Menu</p>
+            <button type="button" class="center" id="click1">Profile</button>
+            <button type="button" class="center" id="click2">Motto Hidup</button>
+            <button type="button" class="center" id="click3">Keahlian</button>
         </div>
-      </div>
     </div>
-  </body>
+    <script>
+        $("#click1").click(function(event){
+            event.preventDefault();
+            $("#title").html(`
+                <table>
+                    <tr>
+                        <th>Nama</th>
+                        <td>Achmad Putra Arifky</td>
+                    </tr>
+                    <tr>
+                        <th>TTL</th>
+                        <td>Surabaya 09/04/2002</td>
+                    </tr>
+                    <tr>
+                        <th>Hobby</th>
+                        <td>Coding</td>
+                    </tr>
+                </table>
+            `);
+        });
+        $("#click2").click(function(event){
+            event.preventDefault();
+            $("#title").html(`
+                <table>
+                    <tr>
+                        <th>Motto Hidup</th>
+                        <td>Kesuksesan Berawal Dari Beberapa Kegagalan</td>
+                    </tr>
+                </table>
+            `);
+        });
+        $("#click3").click(function(event){
+            event.preventDefault();
+            $("#title").html(`
+                <table>
+                    <tr>
+                        <th>Keahlian</th>
+                        <td>HTML, CSS, Java, dan Javascript</td>
+                    </tr>
+                </table>
+            `);
+        });
+    </script>
+</body>
 </html>

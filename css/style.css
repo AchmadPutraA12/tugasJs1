@@ -22,6 +22,14 @@
     position: relative;
     border-radius: 20px;
 }
+table{
+    display: flex;
+    justify-content: center;
+}
+th,td{
+    padding-right: 20px;
+    text-align: left;
+}
 .menu{
     width: 25px;
     position: absolute;
@@ -41,16 +49,24 @@
     padding: 6px;
     margin-top: 40px;
 }
-.contac{
+.pegawai{
     margin-top: 10px;
     text-align: left;
 }
-.telpon, .lokasi{
-    width: 20px;
+.center {
+    margin: 10px;
+    left:130px;
+    border: 2px solid black;
+    background-color: white;
+    color: black;
+    padding: 10px 28px;
+    font-size: 16px;
+    cursor: pointer;
+    border-color: #2196F3;
+    color: dodgerblue;
+    justify-content: center;
 }
-.gender, .umur{
-    width: 30px;
-}
-.skill, .email{
-    width: 35px;
+.center:hover{
+    background: #2196F3;
+    color: white;
 }
