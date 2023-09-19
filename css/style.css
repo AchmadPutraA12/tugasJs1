@@ -1,77 +1,8 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: sans-serif;
+.rounded-circle {
+  height: 200px;
 }
-.container{
-    width: 100%;
-    height: 100vh;
-    background-image: url(../images/backround.png);
-    background-size: cover;
-    background-position: center;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-.profile{
-    background: rgb(195, 10, 142);
-    text-align: center;
-    padding: 40px 90px;
-    color: rgb(8, 8, 8);
-    position: relative;
-    border-radius: 20px;
-}
-.menu{
-    width: 25px;
-    position: absolute;
-    left: 40px;
-    top: 40px;
-}
-.setting{
-    width: 25px;
-    position: absolute;
-    right: 40px;
-    top: 40px;
-}
-.gambar-profil{
-    width: 150px;
-    border-radius: 50%;
-    background: #cee85c;
-    padding: 6px;
-    margin-top: 40px;
-}
-.gempa{
-    margin-top: 10px;
-}
-.center {
-    margin: 10px;
-    position: relative;
-    left:10px;
-    border: 2px solid black;
-    background-color: white;
-    color: black;
-    padding: 10px 28px;
-    font-size: 16px;
-    cursor: pointer;
-    border-color: #2196F3;
-    color: dodgerblue;
-    justify-content: center;
-}
-.center:hover{
-    background: #2196F3;
-    color: white;
-}
-.input-field{
-    text-align: left;
-    height: 45px;
-    margin-left: 10%;
-    width: 90%;
-    border: none;
-    border-radius: 10px;
-    color: #000000;
-    font-size: 15px;
-    padding:4px;
-    background: #ffffff;
-    outline: none;
+
+.rounded-circle2 {
+  height: 200px;
+  width: auto;
 }
